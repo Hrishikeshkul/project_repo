@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     rm -rf *
-                    git clone https://github.com/Hrishikeshkul/project_repo.git
+                    git clone -b dev https://github.com/Hrishikeshkul/project_repo.git
                 '''
             }
         }
@@ -31,9 +31,9 @@ pipeline {
         stage('Creating index file inside container') {
             steps {
                 sh '''
-                    docker run -d -p 200:80 --name server5 httpd
-                    docker cp /mnt/war/project_repo/index.html server5:/usr/local/apache2/htdocs/
-                    docker exec -it server5 chmod 644 /usr/local/apache2/htdocs/index.html
+                    docker run -d -p 300:80 --name server6 httpd
+                    docker cp /mnt/war/project_repo/index.html server6:/usr/local/apache2/htdocs/
+                    docker exec -it server6 chmod 644 /usr/local/apache2/htdocs/index.html
                 '''
             }
         }
