@@ -17,9 +17,10 @@ stages {
         stage ('installing docker')
         {
             steps{
-                sh ''' yum install -y docker
-                       systemctl start docker
-                       docker pull httpd 
+                sh ''' 
+                yum install -y docker
+                systemctl start docker
+                docker pull httpd 
                    '''
             }
         }
