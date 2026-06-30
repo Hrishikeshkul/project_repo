@@ -31,9 +31,9 @@ pipeline {
         stage('Creating index file inside container') {
             steps {
                 sh '''
-                    docker run -d -p 300:80 --name server6 httpd
-                    docker cp /mnt/war/project_repo/index.html server6:/usr/local/apache2/htdocs/
-                    docker exec -it server6 chmod 644 /usr/local/apache2/htdocs/index.html
+                    docker run -d -p 5050:80 --name server10 httpd
+                    docker cp /mnt/war/project_repo/index.html server10:/usr/local/apache2/htdocs/
+                    docker exec -it server10 chmod 644 /usr/local/apache2/htdocs/index.html
                 '''
             }
         }
