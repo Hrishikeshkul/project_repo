@@ -9,7 +9,6 @@ stages {
  stage('SCM') {
             steps {
                 sh '''
-                yum install -y git
                 rm -rf *
                 git clone https://github.com/Hrishikeshkul/project_repo.git
                 '''
