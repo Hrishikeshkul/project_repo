@@ -33,6 +33,7 @@ pipeline {
                 sh '''
                     docker run -d -p 90:80 --name server1 httpd
                     docker cp /mnt/war/project_repo/index.html server1:/usr/local/apache2/htdocs/
+                    docker exec -it server1 chmod 644 /usr/local/apache2/htdocs/index.html
                 '''
             }
         }
